@@ -309,16 +309,7 @@
           body: formData
         }).then(response => {
           // If the request is successful, show success message
-            console.log(response)
-
-          if (response.ok || response.status === 200) {
-            sendBtn.textContent = "Thank you! Your submission has been sent.";
-          } else {
-            sendBtn.textContent = "Sorry, have something wrong, could you try again or contact me directly";
-            sendBtn.disabled = false;
-          }
-          // With no-cors, response.status is always 0, so we assume success
-          
+          sendBtn.textContent = "Thank you! Your submission has been sent.";          
         }).catch(() => {
           sendBtn.textContent = "Sorry, have something wrong, could you try again or contact me directly";
           sendBtn.disabled = false;
