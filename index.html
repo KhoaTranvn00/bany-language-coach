@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bany – English Learning</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
   <style>
     body {
       background-color: #fdf6ed;
@@ -20,7 +23,7 @@
 <body class="text-gray-800 font-serif">
 
   <!-- Header Section -->
-  <header class="px-6 py-12 lg:py-20">
+  <header class="px-6 py-6 lg:py-20">
     <div class="max-w-6xl mx-auto flex flex-col gap-8">
       <!-- First Row: Title & Slogan -->
       <div class="text-center">
@@ -58,7 +61,7 @@
   </header>
 
   <!-- About Me Section -->
-  <section class="pt-12 px-6 max-w-6xl mx-auto">
+  <section class="pt-6 px-6 max-w-6xl mx-auto">
     <h3 class="text-green-600 text-lg font-semibold mb-2">ABOUT ME</h3>
     <h2 class="text-5xl font-bold text-pink-400 mb-6 tracking-tight">LANGUAGE COACH</h2>
     <div class="grid grid-cols-12 md:grid-cols-12 gap-12 items-center">
@@ -87,7 +90,7 @@
   </section>
 
   <!-- Teacher Certificate Section -->
-  <section class="pb-12 px-6 max-w-6xl mx-auto">
+  <section class="pb-6 px-6 max-w-6xl mx-auto">
     <!-- <h2 class="text-3xl font-bold mb-4 text-green-700">Teacher Certificates</h2> -->
     <div class="grid grid-cols-12 md:grid-cols-12 gap-12 items-center">
 
@@ -116,16 +119,16 @@
   </section>
 
   <!-- Publications Section -->
-  <section class="py-12 px-6 max-w-6xl mx-auto">
-    <div class="flex flex-col md:flex-col items-center gap-8">
+  <section class="py-6 px-6 max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-col items-center gap-8 max-w-6xl">
       <!-- Images -->
       <div class="flex-1 flex flex-col md:flex-row gap-6 justify-center items-center">
         <img src="assets/img/publication1.png" alt="Giving a talk in a library"
-          class="w-64 h-48 object-cover rounded-lg shadow-md" />
+          class="w-72 h-54 object-cover rounded-lg shadow-md" />
         <img src="assets/img/publication2.png" alt="Presenting at a conference"
-          class="w-64 h-48 object-cover rounded-lg shadow-md" />
+          class="w-72 h-54 object-cover rounded-lg shadow-md" />
         <img src="assets/img/publication3.png" alt="EU project meeting"
-          class="w-64 h-48 object-cover rounded-lg shadow-md" />
+          class="w-72 h-54 object-cover rounded-lg shadow-md" />
       </div>
       <!-- Text Content -->
       <div class="grid grid-cols-12 gap-8 items-center w-full">
@@ -148,7 +151,7 @@
   </section>
 
   <!-- Courses Section -->
-  <section class="py-12 px-6">
+  <section class="py-6 px-6">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl font-bold mb-6 text-blue-700">Courses</h2>
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
@@ -255,6 +258,73 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- Inquiry Form Section -->
+  <section class="py-12 px-6 max-w-2xl mx-auto">
+    <h2 class="text-2xl font-bold text-green-700 mb-6 text-center">Book your lesson here</h2>
+    <form id="customForm">
+      <div>
+        <label for="name" class="block text-lg font-semibold mb-2">Your Name</label>
+        <input type="text" id="name" name="name" required class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400" />
+      </div>
+      <div>
+        <label for="phone" class="block text-lg font-semibold mb-2 mt-4">Phone Number</label>
+        <input type="tel" id="phone" name="phone" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400" />
+      </div>
+      <div>
+        <label for="email" class="block text-lg font-semibold mb-2 mt-4">Email Address</label>
+        <input type="email" id="email" name="email" required class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400" />
+      </div>
+      <div>
+        <label for="message" class="block text-lg font-semibold mb-2 mt-4">Your Message</label>
+        <textarea id="message" name="message" rows="5" required class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"></textarea>
+      </div>
+      <button type="submit" class="bg-green-600 text-white font-bold px-6 py-2 mt-2 rounded hover:bg-green-700 transition">Send</button>
+    </form>
+    <script>
+      // Replace with your Google Form action URL and field names
+      const GOOGLE_FORM_ACTION = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeBJos4tXye-PjiEEVWgNolza6InhvVE2IWqsKWYYEHRO1aCQ/formResponse";
+      const FIELD_NAME = "entry.2005620554";
+      const FIELD_PHONE = "entry.1065046570";
+      const FIELD_EMAIL = "entry.1045781291";
+      const FIELD_MESSAGE = "entry.1166974658";
+
+      document.getElementById('customForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append(FIELD_NAME, document.getElementById('name').value);
+        formData.append(FIELD_PHONE, document.getElementById('phone').value);
+        formData.append(FIELD_EMAIL, document.getElementById('email').value);
+        formData.append(FIELD_MESSAGE, document.getElementById('message').value);
+
+        const sendBtn = document.querySelector('#customForm button[type="submit"]');
+        sendBtn.disabled = true;
+        sendBtn.textContent = "Sending...";
+
+        fetch(GOOGLE_FORM_ACTION, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: formData
+        }).then(response => {
+          // If the request is successful, show success message
+            console.log(response)
+
+          if (response.ok || response.status === 200) {
+            sendBtn.textContent = "Thank you! Your submission has been sent.";
+          } else {
+            sendBtn.textContent = "Sorry, have something wrong, could you try again or contact me directly";
+            sendBtn.disabled = false;
+          }
+          // With no-cors, response.status is always 0, so we assume success
+          
+        }).catch(() => {
+          sendBtn.textContent = "Sorry, have something wrong, could you try again or contact me directly";
+          sendBtn.disabled = false;
+        });
+      });
+    </script>
   </section>
 
   <!-- Contact Section -->
