@@ -128,76 +128,133 @@
           class="w-64 h-48 object-cover rounded-lg shadow-md" />
       </div>
       <!-- Text Content -->
-      <div class="flex-1 mt-8 md:mt-0">
-        <div class="flex gap-4 mb-4">
-          <img src="assets/img/fingerprint1.svg" alt="Fingerprint" class="w-16 h-16" />
-          <img src="assets/img/fingerprint2.svg" alt="Fingerprint" class="w-16 h-16" />
-          <img src="assets/img/fingerprint3.svg" alt="Fingerprint" class="w-16 h-16" />
+      <div class="grid grid-cols-12 gap-8 items-center w-full">
+        <div class="md:col-span-4 flex justify-center">
+          <img src="assets/img/cycle.png" alt="Cycle" class="w-16 h-16" />
+            <img src="assets/img/cycle.png" alt="Cycle" class="w-16 h-16" />
+            <img src="assets/img/cycle.png" alt="Cycle" class="w-16 h-16" />
         </div>
-        <p class="text-xl mb-4">
-          But teaching is not the only thing I do! I am a researcher, writer, and EU-project contributor too.
-        </p>
-        <a href="#" class="text-pink-400 text-2xl font-medium underline hover:text-pink-600 transition">
-          Read my publications
-        </a>
+        <div class="md:col-span-8 flex flex-col">
+          <p class="text-xl mb-4">
+            But teaching is not the only thing I do! I am a researcher, writer, and EU-project contributor too.
+          </p>
+            
+          <a href="#" class="text-pink-400 text-2xl font-medium underline hover:text-pink-600 transition">
+            Read my publications
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Courses Section -->
-  <section class="bg-gray-100 py-12 px-6">
-    <div class="max-w-4xl mx-auto">
+  <section class="py-12 px-6">
+    <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl font-bold mb-6 text-blue-700">Courses</h2>
-      <ul class="list-disc list-inside grid grid-cols-2 gap-2 text-lg">
-        <li>Business English</li>
-        <li>IELTS</li>
-        <li>Young Learners</li>
-        <li>Inclusive Learning</li>
-        <li>Teacher Trainer</li>
-        <li>Workshops</li>
-      </ul>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <!-- Left: Course Titles -->
+        <div class="md:col-span-3">
+          <ul id="course-list" class="space-y-2 text-lg font-semibold"></ul>
+            <li class="course-item px-4 py-2 rounded cursor-pointer transition hover:bg-blue-100 hover:text-blue-700" onclick="showCourseDetail('business', this)">Business English</li>
+            <li class="course-item px-4 py-2 rounded cursor-pointer transition hover:bg-blue-100 hover:text-blue-700" onclick="showCourseDetail('ielts', this)">IELTS</li>
+            <li class="course-item px-4 py-2 rounded cursor-pointer transition hover:bg-blue-100 hover:text-blue-700" onclick="showCourseDetail('young', this)">Young Learners</li>
+            <li class="course-item px-4 py-2 rounded cursor-pointer transition hover:bg-blue-100 hover:text-blue-700" onclick="showCourseDetail('inclusive', this)">Inclusive Learning</li>
+            <li class="course-item px-4 py-2 rounded cursor-pointer transition hover:bg-blue-100 hover:text-blue-700" onclick="showCourseDetail('trainer', this)">Teacher Trainer</li>
+            <li class="course-item px-4 py-2 rounded cursor-pointer transition hover:bg-blue-100 hover:text-blue-700" onclick="showCourseDetail('workshops', this)">Workshops</li>
+          </ul>
+          <script>
+            function showCourseDetail(course, el) {
+              document.querySelectorAll('.course-detail').forEach(e => e.classList.add('hidden'));
+              document.getElementById('course-' + course).classList.remove('hidden');
+              document.querySelectorAll('.course-item').forEach(item => {
+                item.classList.remove('bg-blue-700', 'text-white');
+              });
+              if (el) {
+                el.classList.add('bg-blue-700', 'text-white');
+              }
+            }
+            // Set default selected
+            document.addEventListener('DOMContentLoaded', function() {
+              const first = document.querySelector('.course-item');
+              if (first) showCourseDetail('business', first);
+            });
+          </script>
+        </div>
+        <!-- Right: Course Details -->
+        <div class="md:col-span-9">
+          <div id="course-business" class="course-detail">
+            <h3 class="text-xl font-bold mb-2 text-blue-700">BUSINESS ENGLISH</h3>
+            <p class="text-green-600 font-semibold mb-2">Communicate Clearly. Lead Confidently.</p>
+            <p class="mb-4">
+              Do you ever feel like your ideas are more sophisticated than your presentations?<br>
+              Or maybe you're unsure how to express disagreement or frustration without sounding too blunt in English?
+            </p>
+            <p class="mb-4">
+              My Business English coaching is here to help you master the language of the workplace, with all its subtle tones, cultural cues, and professional expectations.<br>
+              Whether you're preparing for a meeting, writing a report, or collaborating with international colleagues, we'll work together to build not just a strong foundation, but also the confidence to speak spontaneously and professionally.
+            </p>
+            <p class="text-green-600 font-semibold mb-2">Busy Schedule? No Problem.</p>
+            <p>
+              I know your time is limited. Between slides, reports, and your family, it’s not easy to squeeze in a full lesson.<br>
+              That’s why I offer flexible online sessions, starting from just 30 minutes. Perfect for a quick skill boost before an important call or to stay consistent with your learning.
+            </p>
+            <p class="text-green-600 font-semibold mb-2 mt-4">Who This Is For:</p>
+            <ul class="list-disc list-inside mb-4 text-base">
+            <li>Professionals in international companies</li>
+            <li>New expats in Belgium</li>
+            <li>Team leaders/managers improving communication</li>
+            <li>Job seekers preparing for English interviews</li>
+            </ul>
+            <p class="mt-4 text-center text-lg">
+              Wherever you are in your career, <span class="text-pink-400">you don’t have to figure it out alone.</span><br>
+              You can count on me to help you speak, write, and lead in English, with clarity and confidence.
+            </p>
+          </div>
+          <div id="course-ielts" class="course-detail hidden">
+            <h3 class="text-xl font-bold mb-2 text-blue-700">IELTS</h3>
+            <p>
+              As a <span class="text-green-600 font-semibold">KU Leuven graduate</span> who successfully completed a demanding international program, and as someone who scored <span class="text-yellow-600 font-semibold">8.5 in IELTS Academic</span>, I know exactly what you're going through and what you need.
+            </p>
+            <p class="mt-4">
+              If you’re planning to study abroad, apply for academic programs, or move to an English-speaking country, your IELTS score matters—and so do your academic skills. I’m here to help you build both.
+            </p>
+            <p class="mt-4">
+              Many students feel overwhelmed by the IELTS writing or speaking test.<br>
+              <span class="text-pink-400">I’ve been there.</span>
+            </p>
+            <p class="mt-4">
+              With the right strategies, daily practice, and clear feedback, it doesn’t have to be scary.
+            </p>
+            <p class="text-green-600 font-semibold mb-2 mt-4">Together, we’ll work on:</p>
+            <ul class="list-disc list-inside mb-4 text-base">
+            <li>Building your academic vocabulary and writing structure</li>
+            <li>Improving fluency and confidence in speaking</li>
+            <li>Practicing real IELTS questions with feedback</li>
+            <li>Learning time management and test techniques</li>
+            </ul>
+            <p class="mt-4 text-center text-lg">
+              Whether you’re aiming for Band 7+ or just want to feel calm and ready<br>I’ll support you step by step.
+            </p>
+          </div>
+          <div id="course-young" class="course-detail hidden">
+            <h3 class="text-xl font-bold mb-2 text-blue-700">Young Learners</h3>
+            <p>Fun, interactive lessons for children and teens. Build confidence and fluency from the start.</p>
+          </div>
+          <div id="course-inclusive" class="course-detail hidden">
+            <h3 class="text-xl font-bold mb-2 text-blue-700">Inclusive Learning</h3>
+            <p>Support for learners with diverse backgrounds and needs. Everyone can succeed with the right approach.</p>
+          </div>
+          <div id="course-trainer" class="course-detail hidden">
+            <h3 class="text-xl font-bold mb-2 text-blue-700">Teacher Trainer</h3>
+            <p>Workshops and mentoring for English teachers. Practical methods and classroom strategies.</p>
+          </div>
+          <div id="course-workshops" class="course-detail hidden">
+            <h3 class="text-xl font-bold mb-2 text-blue-700">Workshops</h3>
+            <p>Short, focused sessions on pronunciation, writing, speaking, and more. Boost your skills quickly.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
-
-  <!-- Business English Section -->
-  <section class="py-12 px-6 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-bold mb-4 text-blue-700">Business English</h2>
-    <p class="mb-2 italic">Communicate Clearly. Lead Confidently.</p>
-    <p class="mb-4">
-      Do you feel your ideas are more sophisticated than your presentations? My coaching helps you master workplace
-      English—including tone, cultural cues, and expectations.
-    </p>
-    <p class="mb-4">
-      Flexible online sessions from 30 minutes. Perfect for quick skill boosts or consistency.
-    </p>
-    <p class="mb-2 font-semibold">Who This Is For:</p>
-    <ul class="list-disc list-inside mb-4">
-      <li>Professionals in international companies</li>
-      <li>New expats in Belgium</li>
-      <li>Team leaders/managers improving communication</li>
-      <li>Job seekers preparing for English interviews</li>
-    </ul>
-    <a href="#" class="bg-blue-600 text-white py-2 px-4 rounded shadow hover:bg-blue-700 transition">Book your lesson
-      here</a>
-  </section>
-
-  <!-- IELTS Section -->
-  <section class="bg-gray-100 py-12 px-6 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-bold mb-4 text-blue-700">IELTS</h2>
-    <p class="mb-4">
-      As a KU Leuven graduate who scored 8.5 in IELTS Academic, I know what you’re going through and how to help.
-    </p>
-    <p class="mb-4">
-      With the right strategies, daily practice, and feedback, the test becomes manageable.
-    </p>
-    <p class="mb-2 font-semibold">Together, we’ll work on:</p>
-    <ul class="list-disc list-inside mb-4">
-      <li>Academic vocabulary and structure</li>
-      <li>Speaking fluency and confidence</li>
-      <li>Real IELTS practice questions</li>
-      <li>Time management and techniques</li>
-    </ul>
-    <p>Whether you’re aiming for Band 7+ or just want to feel calm and ready—I’ll support you step by step.</p>
   </section>
 
   <!-- Contact Section -->
